@@ -12,13 +12,14 @@ dataset_name = sys.argv[2]
 
 train, validation, test = dm.data.process(path=path,
                                           train='train.csv',
-                                          validation='validation.csv',
+                                          validation='valid.csv',
                                           test='test.csv')
 model = dm.MatchingModel()
 
 # Training
 start_time = time.time()
-model.run_train(train, validation, best_save_path=path + 'best_model.pth')
+model.run_train(train, validation, epochs=15,
+                best_save_path=path + 'best_model.pth')
 train_time = time.time() - start_time
 train_max_mem = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
 
