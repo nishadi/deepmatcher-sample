@@ -47,7 +47,7 @@ with open(result_file, 'a') as results_file:
   f_star = 0 if (p + r - p * r) == 0 else p * r / (p + r - p * r)
   fcntl.flock(results_file, fcntl.LOCK_EX)
   result_dict = {
-    'method': 'hiermatcher',
+    'method': 'deepmatcher',
     'dataset_name': dataset_name,
     'train_time': round(train_time, 2),
     'test_time': round(test_time, 2),
